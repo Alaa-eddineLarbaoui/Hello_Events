@@ -1,4 +1,4 @@
-package modal;
+package com.example.Event.modal;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,5 +12,10 @@ public class Ticket {
 
 
  @ManyToOne
+ @JoinColumn(name="eventId")
     private Event event;
+
+ @ManyToOne
+ @JoinColumn(name ="userId")
+ private User user;
 }

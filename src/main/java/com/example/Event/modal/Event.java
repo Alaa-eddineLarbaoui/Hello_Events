@@ -1,5 +1,6 @@
-package modal;
+package com.example.Event.modal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,10 +11,9 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity @NoArgsConstructor @AllArgsConstructor @Getter @Setter
+@Entity(name = "event") @NoArgsConstructor @AllArgsConstructor @Getter @Setter
 public class Event {
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer eventId ;
     private String eventName ;
     private String eventDescription ;
@@ -21,9 +21,11 @@ public class Event {
     private String location ;
     private Date eventDate ;
     private LocalDate eventStartTime ;
+    private String eventCategory;
 
 
 
-    @OneToMany(mappedBy = "ticketId")
+    @OneToMany(mappedBy = "event")
+    @JsonIgnore
     private List<Ticket> ticketList ;
 }
