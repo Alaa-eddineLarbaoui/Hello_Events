@@ -14,21 +14,31 @@ public class Eventcontroller {
 
     @Autowired
     private EventService eventservice;
-    @PostMapping("/event")
+    @PostMapping("/addEvent")
     public Event addEvenement(@RequestBody Event event){
         return eventservice.addEvent(event);
     }
-    @GetMapping("/eventAll")
+    @GetMapping("/getEvents")
     public List<Event>AfficherEvent(){
         return eventservice.showEvents();
     }
-    @DeleteMapping("/deleteevent/{id}")
+    @GetMapping("/getEvent")
+    public Event AfficherEvent(Integer Idevent){
+        return eventservice.showEvent(Idevent);
+    }
+
+    @DeleteMapping("/deleteEvent/{id}")
     public String deleteEvent (@PathVariable Integer id){
        return  eventservice.deleteEvent(id);
     }
 
+    @PostMapping("/updateEvent/{idEvent}")
+    public  Event UpdateEvent(Integer id , Event event){
+        return eventservice.updateEvent(id,event);
+    }
 
 
+    
 
 }
 
