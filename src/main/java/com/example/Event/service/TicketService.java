@@ -2,7 +2,6 @@ package com.example.Event.service;
 
 import com.example.Event.modal.Event;
 import com.example.Event.modal.Ticket;
-import com.example.Event.repository.EventRepository;
 import com.example.Event.repository.TicketRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,5 +18,6 @@ public class TicketService {
 
         return ticketRepository.save(ticket);
     }
+
 
 }
