@@ -23,8 +23,8 @@ public class Eventcontroller {
         return eventservice.showEvents();
     }
     @DeleteMapping("/deleteevent/{id}")
-    public void deleteEvent (@PathVariable Integer id){
-        eventservice.deleteEvent(id);
+    public String deleteEvent (@PathVariable Integer id){
+       return  eventservice.deleteEvent(id);
     }
 
 

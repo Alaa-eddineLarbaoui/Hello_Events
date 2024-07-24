@@ -20,8 +20,13 @@ public class EventService  {
     public List<Event> showEvents (){
         return eventRepo.findAll();
     }
-    public void deleteEvent (Integer id){
-         eventRepo.deleteById(id);
+    public String deleteEvent (Integer Idevent){
+         eventRepo.deleteById(Idevent);
+         return "evenement supptimé";
+    }
+
+    public Event showEvent ( Integer Idevent){
+        return eventRepo.findById(Idevent).get();
     }
 
 

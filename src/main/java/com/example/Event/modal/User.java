@@ -24,7 +24,7 @@ public class User implements UserDetails {
     @Enumerated (EnumType.STRING)
     private com.example.Event.enums.role role ;
 
-    @OneToMany(mappedBy = "User")
+    @OneToMany(mappedBy = "user")
     private List<Ticket> tickets ;
 
     @Override
