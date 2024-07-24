@@ -1,5 +1,6 @@
 package com.example.Event.modal;
 
+import com.example.Event.enums.eventcategory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,9 @@ public class Event {
     private String location ;
     private Date eventDate ;
     private LocalDate eventStartTime ;
-    private String eventCategory;
+    private eventcategory eventCategory;
+    private Integer seats ;
+
 
 
 
