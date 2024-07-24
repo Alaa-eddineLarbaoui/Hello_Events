@@ -12,12 +12,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Entity @Getter
+@Entity  @Getter
 @Setter @AllArgsConstructor @NoArgsConstructor
+
 public class User implements UserDetails {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId ;
-    private String userName ;
+    private String username ;
     @Column(unique = true)
     private String email ;
     private String password ;
