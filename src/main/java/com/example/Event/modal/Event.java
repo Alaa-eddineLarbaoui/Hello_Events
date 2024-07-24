@@ -31,4 +31,7 @@ public class Event {
     @OneToMany(mappedBy = "event")
     @JsonIgnore
     private List<Ticket> ticketList ;
+
+
+    
 }
