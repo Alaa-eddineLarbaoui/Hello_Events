@@ -20,6 +20,9 @@ public class EventService  {
     public List<Event> showEvents (){
         return eventRepo.findAll();
     }
+    public void deleteEvent (Integer id){
+         eventRepo.deleteById(id);
+    }
 
 
 
