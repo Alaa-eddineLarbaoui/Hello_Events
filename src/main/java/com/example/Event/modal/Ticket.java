@@ -1,10 +1,11 @@
 package com.example.Event.modal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Entity @Getter @Setter
+@Entity @Getter @Setter @AllArgsConstructor
+@NoArgsConstructor @Builder
 public class Ticket {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ticketId;
@@ -12,10 +13,12 @@ public class Ticket {
 
 
  @ManyToOne
+ @JsonIgnore
  @JoinColumn(name="eventId")
     private Event event;
 
  @ManyToOne
+ @JsonIgnore
  @JoinColumn(name ="userId")
  private User user;
 }
