@@ -17,7 +17,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class JwtHelper {
-    private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    public static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private static final int MINUTES =3600;
     public static String generateToken(String username , role Role) {
         var now= Instant.now();

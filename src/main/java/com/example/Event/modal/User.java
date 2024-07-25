@@ -36,6 +36,7 @@ public class User implements UserDetails {
             System.out.println("le role n'existe pas");
             return List.of();
         }
+        System.out.println("//////////wasal"+role.name());
         return List.of(new SimpleGrantedAuthority("ROLE_"+role.name()));
     }
 
