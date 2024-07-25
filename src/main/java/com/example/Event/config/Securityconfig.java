@@ -44,7 +44,7 @@ public class Securityconfig {
                         .requestMatchers( "/login/**").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("v3/api-docs/**").permitAll()
-
+                        .requestMatchers("/addEvent").hasAuthority("ADMIN")
 
 
 

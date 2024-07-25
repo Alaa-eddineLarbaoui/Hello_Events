@@ -1,6 +1,7 @@
 package com.example.Event.config;
 
 
+import com.example.Event.enums.role;
 import com.example.Event.exeption.AccessDeniedException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -18,12 +19,13 @@ import java.util.Date;
 public class JwtHelper {
     private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private static final int MINUTES =3600;
-    public static String generateToken(String username) {
+    public static String generateToken(String username , role Role) {
         var now= Instant.now();
         return Jwts.builder()
                 .subject(username)
                 .signWith(SignatureAlgorithm.HS256,SECRET_KEY)
                 .expiration(Date.from(now.plus(MINUTES, ChronoUnit.MINUTES)))
+                .claim("role",Role)
                 .compact();
     }
 

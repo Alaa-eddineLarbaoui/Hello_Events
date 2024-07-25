@@ -4,6 +4,7 @@ package com.example.Event.Controller;
 import com.example.Event.Dto.LoginResponse;
 import com.example.Event.Dto.SigninRequestDto;
 import com.example.Event.config.JwtHelper;
+import com.example.Event.enums.role;
 import com.example.Event.modal.User;
 import com.example.Event.service.UserService;
 import jakarta.validation.Valid;
@@ -30,7 +31,9 @@ public class AuthentificationController {
 
     @PostMapping("/signup")
     public ResponseEntity<Void> signup(@Valid @RequestBody User requestDto) {
+        requestDto.setRole(role.USER);
         userService.signUp(requestDto);
+
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -39,7 +42,7 @@ public class AuthentificationController {
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody SigninRequestDto request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.username(), request.password()));
         System.out.println("ussseerrr"+request.username() + " paaaasssss" + request.password());
-        String token = JwtHelper.generateToken(request.username());
+        String token = JwtHelper.generateToken(request.username(),role.USER);
         System.out.println("token---->"+token);
         User user = userService.findUserByUsername(request.username());
         LoginResponse response = new LoginResponse(token, user);
