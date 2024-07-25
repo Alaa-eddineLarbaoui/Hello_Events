@@ -25,7 +25,7 @@ public class EventService  {
     }
     public String deleteEvent (Integer Idevent){
          eventRepo.deleteById(Idevent);
-         return "evenement supptimé";
+         return "Evenement supptimé avec succes";
     }
     public Event showEvent ( Integer Idevent){
         return eventRepo.findById(Idevent).get();
@@ -42,6 +42,10 @@ public class EventService  {
         ev.setEventCategory(event.getEventCategory());
         ev.setSeats(event.getSeats());
         return eventRepo.save(ev);
+    }
+
+    public List<Event> FindbydateEvent(Date eventDate){
+        return eventRepo.findByEventDate(eventDate);
     }
 
 }

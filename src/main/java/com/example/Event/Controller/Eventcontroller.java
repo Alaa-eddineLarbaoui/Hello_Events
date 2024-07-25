@@ -5,6 +5,7 @@ import com.example.Event.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 
@@ -32,10 +33,15 @@ public class Eventcontroller {
        return  eventservice.deleteEvent(id);
     }
 
-    @PostMapping("/updateEvent/{idEvent}")
+    @PutMapping("/updateEvent/{idEvent}")
     public  Event UpdateEvent(Integer id , Event event){
         return eventservice.updateEvent(id,event);
     }
+    @GetMapping("/eventBydate/{date}")
+    public List<Event> Findbydate (@PathVariable Date date){
+        return eventservice.FindbydateEvent(date);
+    }
+
 
 
 }
