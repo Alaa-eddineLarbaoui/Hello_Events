@@ -17,7 +17,7 @@ public class UserController {
     }
 
 
-    @GetMapping("/ListUsers")
+    @GetMapping("admin/ListUsers")
     public List<User> ListUsers() {
         return userService.findAllUsers();
     }

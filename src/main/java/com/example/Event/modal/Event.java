@@ -22,6 +22,7 @@ public class Event {
     private LocalDate eventStartTime ;
     private eventcategory eventCategory;
     private Integer seats ;
+    private double ticketPrice ;
 
 
 

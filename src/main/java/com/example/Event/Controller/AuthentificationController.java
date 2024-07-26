@@ -31,7 +31,7 @@ public class AuthentificationController {
 
     @PostMapping("/signup")
     public ResponseEntity<Void> signup(@Valid @RequestBody User requestDto) {
-        requestDto.setRole(role.ADMIN);
+        requestDto.setRole(role.USER);
         userService.signUp(requestDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
