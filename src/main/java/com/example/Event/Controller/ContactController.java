@@ -16,12 +16,12 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
-    @PostMapping("/sendMessage")
+    @PostMapping("user/sendMessage")
     public Contact  SendMessage (@RequestBody  Contact contact){
         return contactService.SendMessage(contact);
     }
 
-    @GetMapping("/contacts")
+    @GetMapping("admin/contacts")
     public List<Contact> showAllMessages(){
         return contactService.Showsmessages();
     }

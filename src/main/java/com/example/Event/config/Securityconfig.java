@@ -40,16 +40,18 @@ public class Securityconfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-                        .requestMatchers( "/signup/**").permitAll()
-                        .requestMatchers( "/login/**").permitAll()
-                        .requestMatchers("/swagger-ui/**").permitAll()
-                        .requestMatchers("v3/api-docs/**").permitAll()
-                       .requestMatchers("/addEvent/**").hasAuthority("ROLE_ADMIN")
-//                        .requestMatchers("/addEvent/**").hasRole("ADMIN")
+//                        .requestMatchers( "/signup/**").permitAll()
+//                       .requestMatchers( "/login/**").permitAll()
+//                        .requestMatchers("/swagger-ui/**").permitAll()
+//                        .requestMatchers("v3/api-docs/**").permitAll()
+//                       .requestMatchers("/addEvent/**").hasAuthority("ROLE_ADMIN")
+                   .requestMatchers("/tickets/**").hasAuthority("ROLE_USER")
 
 
 
-                        .anyRequest().authenticated())
+
+         //              .anyRequest().authenticated())
+                        .anyRequest().permitAll())
 
                 .authenticationManager(authenticationManager)
 

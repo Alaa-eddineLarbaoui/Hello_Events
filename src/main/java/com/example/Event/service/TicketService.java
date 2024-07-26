@@ -14,6 +14,7 @@ public class TicketService {
 
 
     public Ticket newTicket(Ticket ticket) {
+
         Event event = new Event();
 
         return ticketRepository.save(ticket);

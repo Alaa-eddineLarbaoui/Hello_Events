@@ -15,7 +15,7 @@ public class Eventcontroller {
 
     @Autowired
     private EventService eventservice;
-    @PostMapping("/addEvent")
+    @PostMapping("admin/addEvent")
     public Event addEvenement(@RequestBody Event event){
         return eventservice.addEvent(event);
     }
@@ -28,12 +28,12 @@ public class Eventcontroller {
         return eventservice.showEvent(Idevent);
     }
 
-    @DeleteMapping("/deleteEvent/{id}")
+    @DeleteMapping("admin/deleteEvent/{id}")
     public String deleteEvent (@PathVariable Integer id){
        return  eventservice.deleteEvent(id);
     }
 
-    @PutMapping("/updateEvent/{idEvent}")
+    @PutMapping("admin/updateEvent/{idEvent}")
     public  Event UpdateEvent(Integer id , Event event){
         return eventservice.updateEvent(id,event);
     }
