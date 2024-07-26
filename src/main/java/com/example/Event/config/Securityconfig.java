@@ -45,7 +45,7 @@ public class Securityconfig {
 //                        .requestMatchers("/swagger-ui/**").permitAll()
 //                        .requestMatchers("v3/api-docs/**").permitAll()
 //                       .requestMatchers("/addEvent/**").hasAuthority("ROLE_ADMIN")
- //                    .requestMatchers("/tickets/**").hasAuthority("ROLE_USER")
+                   .requestMatchers("/tickets/**").hasAuthority("ROLE_USER")
 
 
 

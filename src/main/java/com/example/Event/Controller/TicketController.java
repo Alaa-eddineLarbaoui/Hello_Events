@@ -3,6 +3,7 @@ package com.example.Event.Controller;
 import com.example.Event.config.JwtHelper;
 import com.example.Event.modal.Event;
 import com.example.Event.modal.Ticket;
+import com.example.Event.modal.User;
 import com.example.Event.repository.EventRepository;
 import com.example.Event.repository.TicketRepository;
 import jakarta.servlet.http.HttpSession;
@@ -27,10 +28,12 @@ public class TicketController {
     private HttpSession httpSession;
 
 
-    @PostMapping("/GetYourTicket/{id}")
+    @PostMapping("user/GetYourTicket/{id}")
         public Ticket getTicket(Authentication authentication ,@RequestBody  Ticket ticket , @PathVariable Integer id) {
            Event event = eventRepository.findById(id).get();
-           System.out.println("nchuuufuuuu " +authentication.getName());
+
+        User user = (User) authentication.getPrincipal();
+        System.out.println("hada l principal" + user);
 
 
 
@@ -38,6 +41,7 @@ public class TicketController {
            event.setSeats(event.getSeats()-1);
 
            ticket.setEvent(event);
+           ticket.setUser(user);
            eventRepository.save(event);
 
             return ticketRepository.save(ticket);
