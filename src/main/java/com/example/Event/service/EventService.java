@@ -25,7 +25,7 @@ public class EventService  {
     }
     public String deleteEvent (Integer Idevent){
          eventRepo.deleteById(Idevent);
-         return "Evenement supptimé avec succes";
+         return "Evenement supprimé avec succes";
     }
     public Event showEvent ( Integer Idevent){
         return eventRepo.findById(Idevent).get();
