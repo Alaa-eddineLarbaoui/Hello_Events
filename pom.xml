@@ -134,8 +134,6 @@
 	<build>
 		<plugins>
 
-
-
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -149,6 +147,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>Hello-Events</finalName>
 	</build>
 	<repositories>
 		<repository>
@@ -160,5 +159,4 @@
 			</snapshots>
 		</repository>
 	</repositories>
-
 </project>
