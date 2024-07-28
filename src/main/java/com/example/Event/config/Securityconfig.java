@@ -48,6 +48,7 @@ public class Securityconfig {
                       .requestMatchers("/admin/**").hasRole("ADMIN")
                       .requestMatchers("/admin/**").hasRole(String.valueOf(role.ADMIN))
                     .requestMatchers("/user/**").hasRole(String.valueOf(role.USER))
+                    .requestMatchers("/search/**").permitAll()
 
 
 
