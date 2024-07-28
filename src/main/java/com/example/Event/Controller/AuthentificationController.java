@@ -41,7 +41,7 @@ public class AuthentificationController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody SigninRequestDto request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.username(), request.password()));
-        System.out.println("ussseerrr"+request.username() + " paaaasssss" + request.password() );
+        System.out.println("ussseerrr :"+request.username() + " paaaasssss :" + request.password() );
 
 
         User user = userService.findUserByUsername(request.username());

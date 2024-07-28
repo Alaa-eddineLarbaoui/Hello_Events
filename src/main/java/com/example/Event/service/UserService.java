@@ -33,5 +33,9 @@ public class UserService {
     public List<User> findAllUsers() {
         return userRepository.findAllUsers();
     }
+    public String deleteUser (Integer Iduser){
+        userRepository.deleteById(Iduser);
+        return "User est Supprimer avec succes";
+    }
 
 }

@@ -30,7 +30,7 @@ public class EventService  {
     }
     public String deleteEvent (Integer Idevent){
          eventRepo.deleteById(Idevent);
-         return "Evenement supptimé avec succes";
+         return "Evenement supprimé avec succes";
     }
     public Event showEvent ( Integer Idevent){
         return eventRepo.findById(Idevent).get();
@@ -78,6 +78,10 @@ public class EventService  {
         }
         return (List<Event>) eventRepo.findAll(builder);
 
-    }
 
+  
+    public List<Event> findEvents(Date eventDate,eventcategory categorie,String lieu){
+        return eventRepo.findAllByEventDateOrEventCategoryOrLocation(eventDate,categorie,lieu);
+
+    }
 }

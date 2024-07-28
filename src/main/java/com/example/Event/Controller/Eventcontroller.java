@@ -1,7 +1,9 @@
 package com.example.Event.Controller;
 
 import com.example.Event.enums.eventcategory;
+
 import com.example.Event.enums.location;
+
 import com.example.Event.modal.Event;
 import com.example.Event.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,7 @@ public class Eventcontroller {
     public  Event UpdateEvent(Integer id , Event event){
         return eventservice.updateEvent(id,event);
     }
+
     @GetMapping("/search")
     public List<Event> search (@RequestParam (required = false) String eventName ,
                                @RequestParam (required = false) LocalDate eventDate ,
@@ -53,8 +56,17 @@ public class Eventcontroller {
 
                                ){
         return eventservice.searcheEvents(eventName ,description , location ,eventDate , category , minPrice , maxPrice);
-    }
 
+//    @GetMapping("/eventBydate/{date}")
+//    public List<Event> Findbydate (@PathVariable Date date){
+//        return eventservice.FindbydateEvent(date);
+//    }
+
+    @GetMapping("/searchEvents")
+    public List<Event> findEvents(@RequestParam(required = false) Date  date , @RequestParam(required = false) eventcategory categorie, @RequestParam(required = false) String lieu){
+        return eventservice.findEvents(date,categorie,lieu);
+
+    }
 
 
 }

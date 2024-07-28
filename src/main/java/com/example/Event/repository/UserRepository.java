@@ -10,7 +10,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.List;
 
 
+
 public interface UserRepository extends JpaRepository<User, Integer> {
+
     User findByUsername(String username);
     //List<User> findDistinctByRole_User();
     @Query(nativeQuery = true , value = "Select * from user where user.role ='USER'")
