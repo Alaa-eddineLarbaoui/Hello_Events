@@ -1,6 +1,7 @@
 package com.example.Event.config;
 
 
+import com.example.Event.enums.role;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,18 +41,20 @@ public class Securityconfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-//                        .requestMatchers( "/signup/**").permitAll()
-//                       .requestMatchers( "/login/**").permitAll()
-//                        .requestMatchers("/swagger-ui/**").permitAll()
-//                        .requestMatchers("v3/api-docs/**").permitAll()
-//                       .requestMatchers("/addEvent/**").hasAuthority("ROLE_ADMIN")
-                   .requestMatchers("/tickets/**").hasAuthority("ROLE_USER")
+                        .requestMatchers( "/signup/**").permitAll()
+                      .requestMatchers( "/login/**").permitAll()
+                       .requestMatchers("/swagger-ui/**").permitAll()
+                       .requestMatchers("v3/api-docs/**").permitAll()
+                      .requestMatchers("/admin/**").hasRole("ADMIN")
+                      .requestMatchers("/admin/**").hasRole(String.valueOf(role.ADMIN))
+                    .requestMatchers("/user/**").hasRole(String.valueOf(role.USER))
+                    .requestMatchers("/search/**").permitAll()
 
 
 
 
-         //              .anyRequest().authenticated())
-                        .anyRequest().permitAll())
+                     .anyRequest().authenticated())
+         //               .anyRequest().permitAll())
 
                 .authenticationManager(authenticationManager)
 

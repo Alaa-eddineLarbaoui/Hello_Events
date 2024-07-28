@@ -2,9 +2,14 @@ package com.example.Event.service;
 
 
 import com.example.Event.enums.eventcategory;
+import com.example.Event.enums.location;
 import com.example.Event.modal.Event;
+import com.example.Event.modal.QEvent;
 import com.example.Event.repository.EventRepository;
+import com.querydsl.core.BooleanBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
@@ -44,10 +49,39 @@ public class EventService  {
         return eventRepo.save(ev);
     }
 
-   // public List<Event> FindbydateEvent(Date eventDate){
-      //  return eventRepo.findByEventDate(eventDate);
-  //  }
+//    public List<Event> FindbydateEvent(Date eventDate){
+//        return eventRepo.findByEventDate(eventDate);
+//    }
+    public List<Event> searcheEvents(String eventName , String description , location location , LocalDate eventDate , eventcategory category, Double minPrice , Double maxPrice ){
+        QEvent event = QEvent.event;
+        BooleanBuilder builder = new BooleanBuilder();
+        if(eventName != null && !eventName.isEmpty()){
+            builder.and(event.eventName.containsIgnoreCase(eventName));
+        }
+        if(description != null && !description.isEmpty()){
+            builder.and(event.eventDescription.containsIgnoreCase(description));
+        }
+        if(location != null ){
+            builder.and(event.location.eq(location));
+        }
+        if(eventDate != null ){
+            builder.and(event.eventDate.gt(eventDate));
+        }
+        if (category != null ){
+            builder.and(event.eventCategory.eq(category));
+        }
+        if (minPrice != null ){
+            builder.and(event.ticketPrice.goe(minPrice));
+        }
+        if (maxPrice != null ){
+            builder.and(event.ticketPrice.goe(maxPrice));
+        }
+        return (List<Event>) eventRepo.findAll(builder);
+
+
+  
     public List<Event> findEvents(Date eventDate,eventcategory categorie,String lieu){
         return eventRepo.findAllByEventDateOrEventCategoryOrLocation(eventDate,categorie,lieu);
+
     }
 }
