@@ -35,7 +35,7 @@ public class UserService {
     }
     public String deleteUser (Integer Iduser){
         userRepository.deleteById(Iduser);
-        return "User est Supprimer avec succes";
+        return "User est Supprimer avec succes !";
     }
 
 }

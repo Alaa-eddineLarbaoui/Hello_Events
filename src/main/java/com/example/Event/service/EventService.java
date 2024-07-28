@@ -52,37 +52,38 @@ public class EventService  {
 //    public List<Event> FindbydateEvent(Date eventDate){
 //        return eventRepo.findByEventDate(eventDate);
 //    }
-    public List<Event> searcheEvents(String eventName , String description , location location , LocalDate eventDate , eventcategory category, Double minPrice , Double maxPrice ){
+    public List<Event> searcheEvents(String eventName , String description , location location , LocalDate eventDate , eventcategory category, Double minPrice , Double maxPrice ) {
         QEvent event = QEvent.event;
         BooleanBuilder builder = new BooleanBuilder();
-        if(eventName != null && !eventName.isEmpty()){
+        if (eventName != null && !eventName.isEmpty()) {
             builder.and(event.eventName.containsIgnoreCase(eventName));
         }
-        if(description != null && !description.isEmpty()){
+        if (description != null && !description.isEmpty()) {
             builder.and(event.eventDescription.containsIgnoreCase(description));
         }
-        if(location != null ){
+        if (location != null) {
             builder.and(event.location.eq(location));
         }
-        if(eventDate != null ){
+        if (eventDate != null) {
             builder.and(event.eventDate.gt(eventDate));
         }
-        if (category != null ){
+        if (category != null) {
             builder.and(event.eventCategory.eq(category));
         }
-        if (minPrice != null ){
+        if (minPrice != null) {
             builder.and(event.ticketPrice.goe(minPrice));
         }
-        if (maxPrice != null ){
+        if (maxPrice != null) {
             builder.and(event.ticketPrice.goe(maxPrice));
         }
         return (List<Event>) eventRepo.findAll(builder);
 
 
-  
-//    public List<Event> findEvents(Date eventDate,eventcategory categorie,String lieu){
-//        return eventRepo.findAllByEventDateOrEventCategoryOrLocation(eventDate,categorie,lieu);
-//
-//    }
-}
+
+    }
+    public List<Event> findEvents(Date eventDate,eventcategory categorie,String lieu){
+        return eventRepo.findAllByEventDateOrEventCategoryOrLocation(eventDate,categorie,lieu);
+
+    }
+
 }

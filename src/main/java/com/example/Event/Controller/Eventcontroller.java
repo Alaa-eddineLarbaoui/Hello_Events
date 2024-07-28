@@ -54,8 +54,10 @@ public class Eventcontroller {
                                @RequestParam (required = false) Double minPrice,
                                @RequestParam (required = false) Double maxPrice
 
-                               ) {
-        return eventservice.searcheEvents(eventName, description, location, eventDate, category, minPrice, maxPrice);
+
+                               ){
+        return eventservice.searcheEvents(eventName ,description , location ,eventDate , category , minPrice , maxPrice);}
+
 
 //    @GetMapping("/eventBydate/{date}")
 //    public List<Event> Findbydate (@PathVariable Date date){
