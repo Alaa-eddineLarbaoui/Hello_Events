@@ -80,8 +80,9 @@ public class EventService  {
 
 
   
-    public List<Event> findEvents(Date eventDate,eventcategory categorie,String lieu){
-        return eventRepo.findAllByEventDateOrEventCategoryOrLocation(eventDate,categorie,lieu);
-
-    }
+//    public List<Event> findEvents(Date eventDate,eventcategory categorie,String lieu){
+//        return eventRepo.findAllByEventDateOrEventCategoryOrLocation(eventDate,categorie,lieu);
+//
+//    }
+}
 }
