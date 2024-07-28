@@ -1,11 +1,13 @@
 package com.example.Event.Controller;
 
+import com.example.Event.enums.eventcategory;
 import com.example.Event.modal.Event;
 import com.example.Event.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -37,11 +39,15 @@ public class Eventcontroller {
     public  Event UpdateEvent(Integer id , Event event){
         return eventservice.updateEvent(id,event);
     }
-    @GetMapping("/eventBydate/{date}")
-    public List<Event> Findbydate (@PathVariable Date date){
-        return eventservice.FindbydateEvent(date);
-    }
+//    @GetMapping("/eventBydate/{date}")
+//    public List<Event> Findbydate (@PathVariable Date date){
+//        return eventservice.FindbydateEvent(date);
+//    }
 
+    @GetMapping("/searchEvents")
+    public List<Event> findEvents(@RequestParam(required = false) Date  date , @RequestParam(required = false) eventcategory categorie, @RequestParam(required = false) String lieu){
+        return eventservice.findEvents(date,categorie,lieu);
+    }
 
 
 }
