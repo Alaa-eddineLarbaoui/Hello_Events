@@ -50,6 +50,7 @@ public class Eventcontroller {
                                @RequestParam (required = false) eventcategory category,
                                @RequestParam (required = false) Double minPrice,
                                @RequestParam (required = false) Double maxPrice
+
                                ){
         return eventservice.searcheEvents(eventName ,description , location ,eventDate , category , minPrice , maxPrice);
     }
