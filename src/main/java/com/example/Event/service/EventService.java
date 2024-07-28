@@ -47,7 +47,7 @@ public class EventService  {
    // public List<Event> FindbydateEvent(Date eventDate){
       //  return eventRepo.findByEventDate(eventDate);
   //  }
-    public List<Event> findEvents(Date date,eventcategory categorie,String lieu){
-        return eventRepo.findAllByDateEvenementOrCategorieOrLieu(date,categorie,lieu);
+    public List<Event> findEvents(Date eventDate,eventcategory categorie,String lieu){
+        return eventRepo.findAllByEventDateOrEventCategoryOrLocation(eventDate,categorie,lieu);
     }
 }
