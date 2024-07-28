@@ -54,20 +54,22 @@ public class Eventcontroller {
                                @RequestParam (required = false) Double minPrice,
                                @RequestParam (required = false) Double maxPrice
 
+
                                ){
         return eventservice.searcheEvents(eventName ,description , location ,eventDate , category , minPrice , maxPrice);}
+
 
 //    @GetMapping("/eventBydate/{date}")
 //    public List<Event> Findbydate (@PathVariable Date date){
 //        return eventservice.FindbydateEvent(date);
 //    }
 
-    @GetMapping("/searchEvents")
-    public List<Event> findEvents(@RequestParam(required = false) Date  date , @RequestParam(required = false) eventcategory categorie, @RequestParam(required = false) String lieu){
-        return eventservice.findEvents(date,categorie,lieu);
+//    @GetMapping("/searchEvents")
+//    public List<Event> findEvents(@RequestParam(required = false) Date  date , @RequestParam(required = false) eventcategory categorie, @RequestParam(required = false) String lieu){
+//        return eventservice.findEvents(date,categorie,lieu);
+//
+//    }
 
-    }
 
-
-}
+    }}
 

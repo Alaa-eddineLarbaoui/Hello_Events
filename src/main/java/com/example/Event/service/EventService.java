@@ -79,9 +79,11 @@ public class EventService  {
         return (List<Event>) eventRepo.findAll(builder);
 
 
+
     }
     public List<Event> findEvents(Date eventDate,eventcategory categorie,String lieu){
         return eventRepo.findAllByEventDateOrEventCategoryOrLocation(eventDate,categorie,lieu);
 
     }
+
 }
